@@ -1,0 +1,3 @@
+package com.ali.nothingrail;
+import android.app.*;import android.os.*;import android.content.*;import android.widget.*;
+public class MainActivity extends Activity{public void onCreate(Bundle b){super.onCreate(b);setContentView(R.layout.activity_main);EditText t=findViewById(R.id.train),u=findViewById(R.id.base);android.content.SharedPreferences p=getSharedPreferences("rail",0);t.setText(p.getString("train",""));u.setText(p.getString("base",""));findViewById(R.id.save).setOnClickListener(v->{p.edit().putString("train",t.getText().toString().trim()).putString("base",u.getText().toString().trim()).apply();RailWidget.refresh(this);Toast.makeText(this,"Saved",Toast.LENGTH_SHORT).show();});}}
